@@ -34,8 +34,14 @@ async function run() {
         const configPath = core.getInput('configuration-path', {required: false});
 
         if (configPath !== '') {
-            const config = await fetchConent(octokit, configPath)
-            prefix_map =  yaml.safeLoad(config)
+            try {
+                const config = await fetchConent(octokit, configPath)
+                prefix_map =  yaml.safeLoad(config)
+            } catch (error) {
+                if (error.status !== 404) {
+                    throw error
+                }
+            }
         }
         core.info(prefix_map)
 
@@ -62,7 +68,7 @@ async function run() {
 }
 
 async function fetchConent(client, repoPath) {
-    const response = await client.repos.getContents({
+    const response = await client.repos.getContent({
         owner: github.context.repo.owner,
         repo: github.context.repo.repo,
         path: repoPath,
