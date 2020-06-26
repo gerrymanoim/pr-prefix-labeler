@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 async function run() {
-    // try {
+    try {
         const gh_token = process.env.GITHUB_TOKEN
         const octokit = github.getOctokit(token=gh_token)
     
@@ -46,10 +46,10 @@ async function run() {
                 labels: label
             })
         }
-    // }
-    // catch (error) {
-    //     core.setFailed(error.message)
-    // }
+    }
+    catch (error) {
+        core.setFailed(error.message)
+    }
 }
 
 run()
