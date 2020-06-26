@@ -43,7 +43,17 @@ Map to labels:
 ## Usage
 
 ```
-uses: gerrymanoim/pr-prefix-labeler@v1
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+name: "Pull Request Labeler"
+on:
+- pull_request
+
+jobs:
+  pr-labeler:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Label the PR
+      uses: gerrymanoim/pr-prefix-labeler@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 ```
