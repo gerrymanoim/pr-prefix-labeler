@@ -16,7 +16,7 @@ categories:
       - 'bug'
   - title: 'Deprecation'
     labels:
-      - 'deprication'
+      - 'deprecation'
   - title: 'Development Enhancements'
     labels:
       - 'development'
