@@ -30,15 +30,15 @@ async function run() {
             "REL": "releasing", 
         }
 
-        let label = null;
+        let label = [];
         for (const [key, value ] of Object.entries(prefix_map)) {
             if (title.startsWith(key)) {
-                label = value
+                label.push(value)
                 break
             }
         }
 
-        if (label !== null) {
+        if (label.length > 0) {
             await octokit.issues.addLabels({
                 owner: github.context.repo.owner,
                 repo: github.context.repo.repo,
