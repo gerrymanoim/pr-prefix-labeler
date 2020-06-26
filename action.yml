@@ -1,0 +1,7 @@
+
+name: 'Prefix PR Labeler'
+description: 'Automatically labels your PRs based the prefix of the pull request title'
+author: 'Gerry Manoim'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
