@@ -17,7 +17,7 @@ MAINT: maintenance commit (refactoring, typos, etc.)
 REV: revert an earlier commit
 STY: style fix (whitespace, PEP8)
 TST: addition or modification of tests
-REL: related to releasing 
+REL: related to releasing
 ```
 
 Each prefix maps to these PR labels:
@@ -35,7 +35,7 @@ Each prefix maps to these PR labels:
 "REV": "revert",
 "STY": "style",
 "TST": "test",
-"REL": "release", 
+"REL": "release",
 ```
 
 ## Usage
@@ -50,7 +50,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Label the PR
-      uses: gerrymanoim/pr-prefix-labeler@master
+      uses: gerrymanoim/pr-prefix-labeler@v3
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

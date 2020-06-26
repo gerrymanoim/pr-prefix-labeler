@@ -2,6 +2,11 @@
 name: 'Prefix PR Labeler'
 description: 'Automatically labels your PRs based the prefix of the pull request title'
 author: 'Gerry Manoim'
+inputs:
+  configuration-path:
+    description: 'The path for the label configurations'
+    default: '.github/pr-prefix-labeler.yml'
+    required: false
 runs:
   using: 'node12'
   main: 'index.js'
