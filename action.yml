@@ -4,4 +4,4 @@ description: 'Automatically labels your PRs based the prefix of the pull request
 author: 'Gerry Manoim'
 runs:
   using: 'node12'
-  main: 'dist/index.js'
+  main: 'index.js'
