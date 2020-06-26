@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 async function run() {
-    const token = core.getInput('repo-token')
+    const token = process.env.GITHUB_TOKEN
     const octokit = github.getOctokit(token)
   
     if (!github.context.payload.pull_request) {
