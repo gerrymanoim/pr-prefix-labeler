@@ -27,7 +27,7 @@ async function run() {
             "REV": "revert",
             "STY": "style",
             "TST": "test",
-            "REL": "releasing", 
+            "REL": "release", 
         }
 
         let label = [];
