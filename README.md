@@ -2,7 +2,27 @@
 
 For use with https://github.com/release-drafter/release-drafter.
 
-Supported PR prefixes (via  https://numpy.org/devdocs/dev/development_workflow.html):
+## Usage
+
+```yaml
+name: "Pull Request Labeler"
+on:
+- pull_request
+
+jobs:
+  pr-labeler:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Label the PR
+      uses: gerrymanoim/pr-prefix-labeler@v3
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+```
+
+## Defaults
+
+By default `PR PRefix Labeler` supports the following PR prefixes (via  https://numpy.org/devdocs/dev/development_workflow.html):
 
 ```
 API: an (incompatible) API change
@@ -23,38 +43,25 @@ REL: related to releasing
 Each prefix maps to these PR labels:
 
 ```
-"API": "api",
-"BENCH": "bench",
-"BLD": "build",
-"BUG": "bug",
-"DEP": "deprication",
-"DEV": "development",
-"DOC": "documentation",
-"ENH": "enhancement",
-"MAINT": "maintenance",
-"REV": "revert",
-"STY": "style",
-"TST": "test",
-"REL": "release",
+"API": "api"
+"BENCH": "bench"
+"BLD": "build"
+"BUG": "bug"
+"DEP": "deprecation"
+"DEV": "development"
+"DOC": "documentation"
+"ENH": "enhancement"
+"MAINT": "maintenance"
+"REV": "revert"
+"STY": "style"
+"TST": "test"
+"REL": "release"
 ```
 
-## Usage
+## Configuration
 
-```yaml
-name: "Pull Request Labeler"
-on:
-- pull_request
+Optionally, if you have a `configuration-path` (defaulting to `.github/pr-prefix-labeler.yml`), you can provide your own prefixes and mappings. For an example see https://github.com/gerrymanoim/pr-prefix-labeler/blob/master/.github/pr-prefix-labeler.yml.
 
-jobs:
-  pr-labeler:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Label the PR
-      uses: gerrymanoim/pr-prefix-labeler@v3
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-```
 
 ## Release Drafter Category Settings
 
