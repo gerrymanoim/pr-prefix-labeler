@@ -20,7 +20,7 @@ async function run() {
             "BENCH": "bench",
             "BLD": "build",
             "BUG": "bug",
-            "DEP": "deprication",
+            "DEP": "depreciation",
             "DEV": "development",
             "DOC": "documentation",
             "ENH": "enhancement",
