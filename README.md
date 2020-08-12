@@ -7,7 +7,8 @@ For use with https://github.com/release-drafter/release-drafter.
 ```yaml
 name: "Pull Request Labeler"
 on:
-- pull_request
+  pull_request_target:
+    types: [opened, synchronize, reopened, edited]
 
 jobs:
   pr-labeler:
