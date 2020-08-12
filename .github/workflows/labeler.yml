@@ -1,12 +1,13 @@
 name: "Pull Request Labeler"
 on:
-- pull_request
+  pull_request_target:
+    types: [opened, synchronize, reopened, edited]
 
 jobs:
   pr-labeler:
     runs-on: ubuntu-latest
     steps:
     - name: Label the PR
-      uses: gerrymanoim/pr-prefix-labeler@master
+      uses: gerrymanoim/pr-prefix-labeler@v3
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
