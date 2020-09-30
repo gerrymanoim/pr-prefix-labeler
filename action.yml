@@ -11,7 +11,7 @@ inputs:
     description: 'Separator between the prefixes and the title'
     default: ':'
     required: true
-  prefix-list-separator:
+  separator-between-prefixes:
     description: 'Separator between prefixes'
     default: '/'
     required: false

@@ -17,8 +17,8 @@ async function run() {
         core.info(title)
 
         const prefixTitleSeparator = core.getInput('prefix-title-separator')
-        const prefixSeparator = core.getInput('prefix-separator');
-        const prefixes = title.split(prefixTitleSeparator, 0)[0].split(prefixSeparator)
+        const separatorBetweenPrefixes = core.getInput('separator-between-prefixes');
+        const prefixes = title.split(prefixTitleSeparator, 0)[0].split(separatorBetweenPrefixes)
 
         core.info(prefixes)
 
