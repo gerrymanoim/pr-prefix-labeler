@@ -7,6 +7,14 @@ inputs:
     description: 'The path for the label configurations'
     default: '.github/pr-prefix-labeler.yml'
     required: false
+  prefix-title-separator:
+    description: 'Separator between the prefixes and the title'
+    default: ':'
+    required: true
+  prefix-list-separator:
+    description: 'Separator between prefixes'
+    default: '/'
+    required: false
 runs:
   using: 'node12'
   main: 'index.js'
