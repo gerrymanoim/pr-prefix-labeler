@@ -67,6 +67,7 @@ async function run() {
     }
 }
 
+
 async function fetchConent(client, repoPath) {
     const response = await client.repos.getContent({
         owner: github.context.repo.owner,
