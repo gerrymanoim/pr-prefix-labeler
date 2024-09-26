@@ -12,8 +12,15 @@ async function run() {
             "Payload doesn't contain `pull_request`. Make sure this Action is being triggered by a pull_request event (https://help.github.com/en/articles/events-that-trigger-workflows#pull-request-event-pull_request)."
         )
         }
-        const title = github.context.payload.pull_request.title
+
+        const title = github.context.payload.pull_request.title.split(":", 1)[0]
         core.info(title)
+
+        const prefixTitleSeparator = core.getInput('prefix-title-separator')
+        const separatorBetweenPrefixes = core.getInput('separator-between-prefixes');
+        const prefixes = title.split(prefixTitleSeparator, 0)[0].split(separatorBetweenPrefixes)
+
+        core.info(prefixes)
 
         let prefix_map = {
             "API": "api",
@@ -45,11 +52,10 @@ async function run() {
         }
         core.info(prefix_map)
 
-        let label = [];
-        for (const [key, value ] of Object.entries(prefix_map)) {
-            if (title.startsWith(key)) {
-                label.push(value)
-                break
+        let labels = [];
+        for (let prefix in prefixes) {
+            if (prefix in prefix_map) {
+                labels.push(prefix)
             }
         }
 
@@ -58,7 +64,7 @@ async function run() {
                 owner: github.context.repo.owner,
                 repo: github.context.repo.repo,
                 issue_number: github.context.payload.pull_request.number,
-                labels: label
+                labels: labels
             })
         }
     }
