@@ -19,7 +19,7 @@
   "homepage": "https://github.com/gerrymanoim/pr-prefix-labeler#readme",
   "dependencies": {
     "@actions/core": "^1.9.1",
-    "@actions/github": "^5.1.1",
+    "@actions/github": "^6.0.0",
     "js-yaml": "^3.14.0"
   }
 }
